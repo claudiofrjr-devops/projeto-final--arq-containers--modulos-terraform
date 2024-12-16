@@ -20,18 +20,18 @@ variable "availability_zones" {
 
 variable "private_subnets" {
   description = "SUbnetes privadas para comunicação entre os serviços."
-  type = list(map({
-    name               = string
-    cidr               = string
-    availability_zones = string
+  type = list(object({
+    name              = string
+    cidr              = string
+    availability_zone = string
   }))
 }
 
 variable "public_subnets" {
   description = "SUbnetes publicas para comunicação entre os serviços."
-  type = list(map({
-    name               = string
-    cidr               = string
-    availability_zones = string
+  type = list(object({
+    name              = string
+    cidr              = string
+    availability_zone = string
   }))
 }
