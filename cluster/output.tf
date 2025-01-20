@@ -26,6 +26,10 @@ output "lb_internal_listener" {
   value = aws_lb_listener.internal.arn
 }
 
+output "lb_internal_listener_https" {
+  value = length(var.acm_certs) > 0 ? aws_lb_listener.internal_443[0].arn : aws_lb_listener.internal.arn
+}
+
 output "service_discovery_cloudmap" {
   value = aws_service_discovery_private_dns_namespace.main.id
 }
@@ -49,3 +53,4 @@ output "vpc_link_nlb_arn" {
 output "vpc_link" {
   value = aws_api_gateway_vpc_link.main.id
 }
+

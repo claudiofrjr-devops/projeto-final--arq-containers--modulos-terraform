@@ -43,3 +43,8 @@ variable "capacity_providers" {
 
   ]
 }
+
+variable "acm_certs" {
+  type    = list(string)
+  default = []
+}
